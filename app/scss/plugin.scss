@@ -1,0 +1,53 @@
+@import "mixins.scss";
+
+.accordion {
+	.accordion-body {
+		display: none;
+	}
+}
+
+.tabber-head {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.tabber-content {
+
+	.tab-content {
+		display: none;
+	
+		&.active {
+			display: block;
+		}
+
+	}
+
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-radius: 2px;	
+	background-color: #fff;
+	@include css3Property("box-shadow", "0 16px 28px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)");
+	@include css3Property("transition", "all 0.35s ease");
+	z-index: 1003;
+}
+
+.overlay {
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+    background: #000;
+    height: 100%;
+    opacity: 0;
+    @include css3Property("transition", "opacity 0.35s ease");
+}

@@ -1,0 +1,51 @@
+/* Mixins */
+@mixin css3Property($property, $value) {
+	        #{$property}: #{$value};
+	   -moz-#{$property}: #{$value};
+	-webkit-#{$property}: #{$value};
+}
+
+@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
+    background-color: $startColor;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+    background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+    background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+    background-image:      -o-linear-gradient(top, $startColor, $endColor);
+    background-image:         linear-gradient(top, $startColor, $endColor);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin button($color:#fff, $background-color: #26a69a, $border-color: (darken(#26a69a, 10%))) {
+	color: $color;
+	background-color: $background-color;
+	border-color: $border-color;
+
+	&:hover, &:focus {
+		background-color: darken($background-color, 5%);
+		border-color: darken($border-color, 5%);
+		color: $color;
+	}
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}
